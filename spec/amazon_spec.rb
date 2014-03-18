@@ -23,6 +23,9 @@ describe Amazon do
     expect(@book.price.to_s).to eq "{\"Kindle\"=>\"$9.99\", \"Paperback\"=>\"$11.37\"}"
   end
 
-  it "returns all possible ISBN numbers"
+  it "returns all possible ISBN numbers" do
+    expect(@book.isbn_numbers.to_s).to eq "[\"ISBN-10: 0465050654\", \"ISBN-13: 978-0465050659\"]"
+  end
+
   it "returns book language(s)"
 end

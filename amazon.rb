@@ -19,4 +19,9 @@ class Amazon
     prices_array = @response.css("div#tmmSwatches ul li a span").map{|node| node.text.gsub("\n\t", "").strip}.uniq
     @price ||= Hash[prices_array.each_slice(2).to_a].reject!{|key, value| value.nil?}
   end
+
+  def isbn_numbers
+    isbn = @response.css("table#productDetailsTable li").map(&:text)
+    @isbn_numbers ||= [isbn[3], isbn[4]]
+  end
 end
