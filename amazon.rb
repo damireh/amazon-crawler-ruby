@@ -24,4 +24,8 @@ class Amazon
     isbn = @response.css("table#productDetailsTable li").map(&:text)
     @isbn_numbers ||= [isbn[3], isbn[4]]
   end
+
+  def language
+    @language ||= @response.css("table#productDetailsTable li").map(&:text)[2]
+  end
 end

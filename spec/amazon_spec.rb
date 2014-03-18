@@ -7,8 +7,6 @@ describe Amazon do
     @book = Amazon.new URL
   end
 
-  it "accepts an Amazon product URL"
-
   describe "#title" do
     it "returns book title" do
       expect(@book.title).to eq "The Design of Everyday Things: Revised and Expanded Edition"
@@ -27,5 +25,7 @@ describe Amazon do
     expect(@book.isbn_numbers.to_s).to eq "[\"ISBN-10: 0465050654\", \"ISBN-13: 978-0465050659\"]"
   end
 
-  it "returns book language(s)"
+  it "returns book language(s)" do
+    expect(@book.language).to eq "Language: English"
+  end
 end
