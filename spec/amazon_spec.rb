@@ -15,7 +15,10 @@ describe Amazon do
     end
   end
 
-  it "returns book author(s)"
+  it "returns book author(s)" do
+    expect(@book.author).to eq "Don Norman"
+  end
+
   it "returns book prices (kindle, paperback, etc...)"
   it "returns all possible ISBN numbers"
   it "returns book language(s)"

@@ -10,4 +10,8 @@ class Amazon
   def title
     @title ||= @response.css("span#productTitle").text
   end
+
+  def author
+    @author ||= @response.css("span.author a.a-link-normal").text
+  end
 end
