@@ -27,11 +27,10 @@ class Amazon
   end
 
   def isbn_numbers
-    isbn = @response.css("table#productDetailsTable li").map(&:text)
-    @isbn_numbers ||= [isbn[3], isbn[4]]
+    @isbn_numbers ||= @response.css("table#productDetailsTable li").map{|node| node.text.split(": ")}.select{|key, value| key.include? "ISBN" }.to_h
   end
 
   def language
-    @language ||= @response.css("table#productDetailsTable li").map(&:text)[2]
+    @language ||= @response.css("table#productDetailsTable li").map{|node| node.text.split(": ")}.select{|key, value| key == "Language" }[0][1]
   end
 end

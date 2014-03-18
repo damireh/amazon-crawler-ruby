@@ -20,10 +20,10 @@ describe Amazon do
   end
 
   it "returns all possible ISBN numbers" do
-    expect(@book.isbn_numbers.to_s).to eq "[\"ISBN-10: 0465050654\", \"ISBN-13: 978-0465050659\"]"
+    expect(@book.isbn_numbers.to_s).to eq "{\"ISBN-10\"=>\"0465050654\", \"ISBN-13\"=>\"978-0465050659\"}"
   end
 
   it "returns book language(s)" do
-    expect(@book.language).to eq "Language: English"
+    expect(@book.language).to eq "English"
   end
 end
