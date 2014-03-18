@@ -4,11 +4,17 @@ URL = "http://www.amazon.com/gp/product/0465050654"
 
 describe Amazon do
   before :all do
-    @product = Amazon.new URL
+    @book = Amazon.new URL
   end
 
   it "accepts an Amazon product URL"
-  it "returns book title"
+
+  describe "#title" do
+    it "returns book title" do
+      expect(@book.title).to eq "The Design of Everyday Things: Revised and Expanded Edition"
+    end
+  end
+
   it "returns book author(s)"
   it "returns book prices (kindle, paperback, etc...)"
   it "returns all possible ISBN numbers"

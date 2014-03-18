@@ -6,4 +6,8 @@ class Amazon
     @url = url
     @response = Nokogiri::HTML open(url)
   end
+
+  def title
+    @title ||= @response.css("span#productTitle").text
+  end
 end
