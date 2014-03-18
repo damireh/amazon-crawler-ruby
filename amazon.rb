@@ -30,7 +30,7 @@ class Amazon
   end
 
   def isbn_numbers
-    @isbn_numbers ||= @response.css("table#productDetailsTable li").map{|node| node.text.split(": ")}.select{|key, value| key.include? "ISBN" }.to_h
+    @isbn_numbers ||= Hash[@response.css("table#productDetailsTable li").map{|node| node.text.split(": ")}.select{|key, value| key.include? "ISBN" }]
   end
 
   def language
