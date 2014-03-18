@@ -19,7 +19,10 @@ describe Amazon do
     expect(@book.author).to eq "Don Norman"
   end
 
-  it "returns book prices (kindle, paperback, etc...)"
+  it "returns book prices (kindle, paperback, etc...)" do
+    expect(@book.price.to_s).to eq "{\"Kindle\"=>\"$9.99\", \"Paperback\"=>\"$11.37\"}"
+  end
+
   it "returns all possible ISBN numbers"
   it "returns book language(s)"
 end
