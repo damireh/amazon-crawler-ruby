@@ -22,8 +22,8 @@ class Amazon
   end
 
   def price
-    prices_array = @response.css("div#tmmSwatches ul li a span").map{|node| node.text.gsub("\n\t", "").strip}.uniq
-    @price ||= Hash[prices_array.each_slice(2).to_a].reject!{|key, value| value.nil?}
+    prices_array = @response.css("div#tmmSwatches ul li a span").map{|node| node.text.gsub("\n\t", "").strip}.uniq.reject{|element| element == "from"}
+    @price ||= Hash[prices_array.each_slice(2).to_a]
   end
 
   def isbn_numbers

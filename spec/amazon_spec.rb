@@ -1,10 +1,8 @@
 require_relative "../amazon"
 
-URL = "http://www.amazon.com/gp/product/0465050654"
-
 describe Amazon do
   before :all do
-    @book = Amazon.new URL
+    @book = Amazon.new "http://www.amazon.com/gp/product/0465050654"
   end
 
   describe "#title" do
