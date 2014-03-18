@@ -5,6 +5,10 @@ describe Amazon do
     @book = Amazon.new "http://www.amazon.com/gp/product/0465050654"
   end
 
+  it "should raise an exception if URL is not valid" do
+    expect{ Amazon.new("error") }.to raise_error(ArgumentError)
+  end
+
   describe "#title" do
     it "returns book title" do
       expect(@book.title).to eq "The Design of Everyday Things: Revised and Expanded Edition"

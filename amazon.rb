@@ -1,8 +1,11 @@
 require "nokogiri"
 require "open-uri"
+require "uri"
 
 class Amazon
   def initialize url
+    raise ArgumentError.new("Invalid URL") unless url =~ URI::regexp
+
     @url = url
     @response = Nokogiri::HTML open(url)
   end
