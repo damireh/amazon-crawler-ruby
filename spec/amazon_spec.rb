@@ -3,6 +3,10 @@ require_relative "../amazon"
 URL = "http://www.amazon.com/gp/product/0465050654"
 
 describe Amazon do
+  before :all do
+    @product = Amazon.new URL
+  end
+
   it "accepts an Amazon product URL"
   it "returns book title"
   it "returns book author(s)"
