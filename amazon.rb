@@ -12,7 +12,13 @@ class Amazon
   end
 
   def author
-    @author ||= @response.css("span.author a.a-link-normal").text
+    author_element = @response.css("span.author a.a-link-normal")
+
+    if author_element[3].nil?
+      @author ||= author_element.text
+    else
+      @author ||= author_element[3].children.text
+    end
   end
 
   def price
